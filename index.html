@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To My Love 💌</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="envelope">
+    <div class="flap"></div>
+    <div class="letter">
+      <div class="letter-content">
+        <h2>Dear Baby Tally,</h2>
+        <p>Happy Girlfriends day! </p>
+        <p>I just want to tell you that I love you so much!</p>
+        <p>Having you is my universe.</p>
+        <p>Watching you smile every day is my universe.</p>
+        <p>And only it will be your eyes I'm falling 
+        for the rest of my life.</p>
+        <p>I'm always here for you my Love no matter what.
+         You will always have a place in my heart forever.</p>
+        <p>I LOVEE YUU SOO MUCH BABYY MWAAA!!!!!</p>
+        <p class="from">— Baby, Renz</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating hearts container -->
+  <div class="hearts">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+  </div>
+
+  <!-- Floating "I love you" words container -->
+  <div class="floating-words-container"></div>
+
+  <script>
+    const envelope = document.querySelector('.envelope');
+    const hearts = document.querySelector('.hearts');
+    let opened = false;
+
+    envelope.addEventListener('click', () => {
+      if (!opened) {
+        hearts.style.opacity = 1;
+
+        document.querySelectorAll('.heart').forEach(heart => {
+          heart.style.left = Math.random() * 100 + '%';
+          heart.style.bottom = '0px';
+        });
+
+        setTimeout(() => {
+          hearts.style.opacity = 0;
+        }, 4000);
+
+        opened = true;
+      }
+    });
+
+    const floatingContainer = document.querySelector('.floating-words-container');
+
+    function createFloatingWord() {
+      const word = document.createElement('div');
+      word.className = 'floating-word';
+      word.textContent = 'I LOVE YOUUUUUUU!!';
+
+    
+      word.style.left = (5 + Math.random() * 85) + 'vw';
+
+   
+      word.style.top = (90 + Math.random() * 5) + 'vh';
+
+      floatingContainer.appendChild(word);
+
+      
+      setTimeout(() => {
+        floatingContainer.removeChild(word);
+      }, 5000);
+    }
+
+    
+    setInterval(createFloatingWord, 700);
+  </script>
+</body>
+</html>
